@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia dos Pais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Feliz Dia dos Pais!</h1>
+        <div id="giftContainer">
+            <img id="gift" src="White_Gift_PNG_Clip_Art_Image-1414793119.png" alt="Presente">
+        </div>
+        <button id="surpriseButton" class="hidden">Clique para ver a surpresa!</button>
+        <p id="surpriseMessage" class="hidden"></p>
+        <div id="videoContainer" class="hidden">
+            <video id="surpriseVideo" width="600" controls>
+                <source src="viedo.mp4" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+        </div>
+        <div id="heartContainer" class="hidden">
+            <div class="heart"></div>
+        </div>
+        <div id="fireworksContainer"></div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="jason-mraz-violino-instrumental-04-musicas-para-meu-casamento-popclass.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

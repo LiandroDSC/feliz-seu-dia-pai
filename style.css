@@ -1,0 +1,244 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #f06, #f79);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+#giftContainer {
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+#gift {
+    width: 150px;
+    transition: transform 0.5s;
+}
+
+#giftContainer:active #gift {
+    transform: scale(0.9);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#surpriseMessage {
+    margin-top: 25px;
+    font-size: 28px;
+    color: #333;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: reveal 0.5s forwards;
+}
+
+@keyframes reveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#heartContainer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart {
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    left: 60px;
+    top: 0;
+}
+
+@keyframes beat {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
+
+/* Fogos de artifício */
+#fireworksContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.firework {
+    position: absolute;
+    width: 3px;
+    /* Largura da ponta vertical */
+    height: 42px;
+    /* Altura da ponta vertical */
+    background-color: rgba(253, 166, 17, 0.8);
+    box-shadow: 0 0 10px rgba(253, 166, 17, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    transform: translate(-50%, -50%);
+    animation: explode 1s ease-out forwards;
+}
+
+.firework::before,
+.firework::after {
+    content: "";
+    position: absolute;
+    background-color: rgba(253, 166, 17, 0.8);
+    box-shadow: 0 0 10px rgba(253, 166, 17, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(255, 255, 255, 0.4),
+        0 0 40px rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.firework::before {
+    width: 42px;
+    /* Largura da ponta horizontal */
+    height: 3px;
+    /* Altura da ponta horizontal */
+    top: 20px;
+    /* Ajuste de posição da linha horizontal */
+    left: -25px;
+    /* Centraliza a linha horizontal corretamente */
+}
+
+.firework::after {
+    width: 3px;
+    /* Largura da ponta vertical */
+    height: 42px;
+    /* Altura da ponta vertical */
+    left: 0;
+    /* Corrige o posicionamento vertical */
+    top: 0;
+    /* Ajusta para que não fique fora de lugar */
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #surpriseMessage {
+        font-size: 20px;
+    }
+
+    .heart {
+        width: 95px;
+        height: 95px;
+    }
+
+    .heart::before,
+    .heart::after {
+        width: 95px;
+        height: 95px;
+    }
+
+    #gift {
+        width: 100px;
+    }
+}
+
+/* Estilos para o vídeo */
+#videoContainer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#surpriseVideo {
+    max-width: 100%;
+    height: 300px;
+}
